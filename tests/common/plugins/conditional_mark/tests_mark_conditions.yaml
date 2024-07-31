@@ -215,15 +215,15 @@ copp/test_copp.py:
 
 copp/test_copp.py::TestCOPP::test_add_new_trap:
   skip:
-    reason: "Copp test_add_new_trap is not yet supported on multi-asic platform"
+    reason: "Copp test_add_new_trap is not yet supported on multi-asic platform or 7050CX3 SKUs"
     conditions:
-      - "is_multi_asic==True"
+      - "is_multi_asic==True or hwsku in ['Arista-7050CX3-32C-C32', 'Arista-7050CX3-32S-C32', 'Arista-7050CX3-32S-D48C8']"
 
 copp/test_copp.py::TestCOPP::test_remove_trap:
   skip:
-    reason: "Copp test_remove_trap is not yet supported on multi-asic platform"
+    reason: "Copp test_remove_trap is not yet supported on multi-asic platform or 7050CX3 SKUs"
     conditions:
-      - "is_multi_asic==True"
+      - "is_multi_asic==True or hwsku in ['Arista-7050CX3-32C-C32', 'Arista-7050CX3-32S-C32', 'Arista-7050CX3-32S-D48C8']"
 
 copp/test_copp.py::TestCOPP::test_trap_config_save_after_reboot:
   skip:
@@ -1427,7 +1427,7 @@ qos/test_qos_sai.py::TestQosSai::testQosSaiPgSharedWatermark[None-wm_pg_shared_l
   xfail:
     reason: "Image issue on Arista platforms"
     conditions:
-      - "platform in ['x86_64-arista_7050cx3_32s']"
+      - "platform in ['x86_64-arista_7050cx3_32c', 'x86_64-arista_7050cx3_32s']"
 
 qos/test_qos_sai.py::TestQosSai::testQosSaiQWatermarkAllPorts:
   skip:
